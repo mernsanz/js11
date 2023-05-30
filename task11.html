@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>task11</title>
+    <style>
+        .error-message {
+            color: red;
+        }
+    </style>
+    <script>
+        function validateForm() {
+            var name = document.getElementById("name").value;
+            var email = document.getElementById("email").value;
+            var password = document.getElementById("password").value;
+            var confirmPassword = document.getElementById("confirmPassword").value;
+            var gender = document.querySelector('input[name="gender"]:checked');
+            var age = document.getElementById("age").value;
+            var phoneNumber = document.getElementById("phoneNumber").value;
+            var address = document.getElementById("address").value;
+            var state = document.getElementById("state").value;
+            var country = document.getElementById("country").value;
+            var languages = document.querySelectorAll('input[name="language"]:checked');
+
+            var isValid = true;
+
+            if (name === "") {
+                document.getElementById("nameError").innerHTML = "Poor";
+                isValid = false;
+            } else {
+                document.getElementById("nameError").innerHTML = "";
+            }
+
+            if (email === "") {
+                document.getElementById("emailError").innerHTML = "Poor";
+                isValid = false;
+            } else {
+                document.getElementById("emailError").innerHTML = "";
+            }
+
+            if (password === "") {
+                document.getElementById("passwordError").innerHTML = "Poor";
+                isValid = false;
+            } else {
+                document.getElementById("passwordError").innerHTML = "";
+            }
+
+            if (confirmPassword === "") {
+                document.getElementById("confirmPasswordError").innerHTML = "Poor or mismatch";
+                isValid = false;
+            } else if (password !== confirmPassword) {
+                document.getElementById("confirmPasswordError").innerHTML = "Password mismatch";
+                isValid = false;
+            } else {
+                document.getElementById("confirmPasswordError").innerHTML = "";
+            }
+
+            if (!gender) {
+                document.getElementById("genderError").innerHTML = "Poor";
+                isValid = false;
+            } else {
+                document.getElementById("genderError").innerHTML = "";
+            }
+
+            if (age === "") {
+                document.getElementById("ageError").innerHTML = "Poor";
+                isValid = false;
+            } else {
+                document.getElementById("ageError").innerHTML = "";
+            }
+
+            if (phoneNumber === "") {
+                document.getElementById("phoneNumberError").innerHTML = "Poor";
+                isValid = false;
+            } else {
+                document.getElementById("phoneNumberError").innerHTML = "";
+            }
+
+            if (address === "") {
+                document.getElementById("addressError").innerHTML = "Poor";
+                isValid = false;
+            } else {
+                document.getElementById("addressError").innerHTML = "";
+            }
+
+            if (state === "") {
+                document.getElementById("stateError").innerHTML = "Poor";
+                isValid = false;
+            } else {
+                document.getElementById("stateError").innerHTML = "";
+            }
+
+            if (country === "") {
+                document.getElementById("countryError").innerHTML = "Poor";
+                isValid = false;
+            } else {
+                document.getElementById("countryError").innerHTML = "";
+            }
+
+            if (languages.length === 0) {
+                document.getElementById("languageError").innerHTML = "At least one language is required";
+                isValid = false;
+            } else {
+                document.getElementById("languageError").innerHTML = "";
+            }
+
+            return isValid;
+        }
+    </script>
+</head>
+
+<body>
+    <h1 style="margin-left: 550px;">Registration form</h1>
+    <form onsubmit="return validateForm()" style="margin-left: 400px;
+    margin-right: 700px;
+    padding-left: 150px;
+    background-color:rgb(255, 139, 139);
+    background-image: linear-gradient(to bottom right,rgb(236, 222, 131), rgb(237, 134, 134));
+    color: rgb(8, 8, 8);
+    line-height: 50px">
+        <div>
+            <label for="name">Name:</label>
+            <input type="text" id="name">
+            <span id="nameError" class="error-message"></span>
+        </div>
+
+        <div>
+            <label for="email">Email:</label>
+            <input type="email" id="email">
+            <span id="emailError" class="error-message"></span>
+        </div>
+
+        <div>
+            <label for="password">Password:</label>
+            <input type="password" id="password">
+            <span id="passwordError" class="error-message"></span>
+        </div>
+
+        <div>
+            <label for="confirmPassword">Re-enter Password:</label>
+            <input type="password" id="confirmPassword">
+            <span id="confirmPasswordError" class="error-message"></span>
+        </div>
+
+        <div>
+            <label for="gender">Gender:</label>
+            <input type="radio" id="male" name="gender" value="male">
+            <label for="male">Male</label>
+            <input type="radio" id="female" name="gender" value="female">
+            <label for="female">Female</label>
+            <span id="genderError" class="error-message"></span>
+        </div>
+
+        <div>
+            <label for="age">Age:</label>
+            <input type="text" id="age">
+            <span id="ageError" class="error-message"></span>
+        </div>
+
+        <div>
+            <label for="phoneNumber">Phone Number:</label>
+            <input type="text" id="phoneNumber">
+            <span id="phoneNumberError" class="error-message"></span>
+        </div>
+
+        <div>
+            <label for="address">Address:</label>
+            <textarea id="address"></textarea>
+            <span id="addressError" class="error-message"></span>
+        </div>
+
+        <div>
+            <label for="state">State:</label>
+            <input type="text" id="state">
+            <span id="stateError" class="error-message"></span>
+        </div>
+
+        <div>
+            <label for="country">Country:</label>
+            <select id="country">
+                <option value="">Select Country</option>
+                <option value="india">India</option>
+                <option value="usa">USA</option>
+                <option value="england">England</option>
+            </select>
+            <span id="countryError" class="error-message"></span>
+        </div>
+
+        <div>
+            <label>Languages Known:</label><br>
+            <input type="checkbox" id="english" name="language" value="english">
+            <label for="english">English</label><br>
+            <input type="checkbox" id="hindi" name="language" value="hindi">
+            <label for="hindi">Hindi</label><br>
+            <input type="checkbox" id="french" name="language" value="french">
+            <label for="french">French</label>
+            <span id="languageError" class="error-message"></span>
+        </div>
+
+        <div>
+            <input style="margin-left: 150px;margin-top: 20px;margin-bottom: 50px;padding: 10px;border-radius: 5px;" type="submit" value="Submit">
+        </div>
+    </form>
+</body>
+
+</html>
